@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/DeltaChaseLeaderboards/static/css/main.68dab4e0.chunk.css",
+    "main.js": "/DeltaChaseLeaderboards/static/js/main.1b178742.chunk.js",
+    "main.js.map": "/DeltaChaseLeaderboards/static/js/main.1b178742.chunk.js.map",
+    "runtime-main.js": "/DeltaChaseLeaderboards/static/js/runtime-main.578e4bea.js",
+    "runtime-main.js.map": "/DeltaChaseLeaderboards/static/js/runtime-main.578e4bea.js.map",
+    "static/css/2.49be9a4e.chunk.css": "/DeltaChaseLeaderboards/static/css/2.49be9a4e.chunk.css",
+    "static/js/2.94412033.chunk.js": "/DeltaChaseLeaderboards/static/js/2.94412033.chunk.js",
+    "static/js/2.94412033.chunk.js.map": "/DeltaChaseLeaderboards/static/js/2.94412033.chunk.js.map",
+    "index.html": "/DeltaChaseLeaderboards/index.html",
+    "static/css/2.49be9a4e.chunk.css.map": "/DeltaChaseLeaderboards/static/css/2.49be9a4e.chunk.css.map",
+    "static/css/main.68dab4e0.chunk.css.map": "/DeltaChaseLeaderboards/static/css/main.68dab4e0.chunk.css.map",
+    "static/js/2.94412033.chunk.js.LICENSE.txt": "/DeltaChaseLeaderboards/static/js/2.94412033.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.578e4bea.js",
+    "static/css/2.49be9a4e.chunk.css",
+    "static/js/2.94412033.chunk.js",
+    "static/css/main.68dab4e0.chunk.css",
+    "static/js/main.1b178742.chunk.js"
+  ]
+}
