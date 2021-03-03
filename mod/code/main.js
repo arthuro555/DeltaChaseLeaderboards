@@ -33,7 +33,7 @@ class DeltaChaseMod extends GDAPI.Mod {
     if (this.username === null)
       this.username = prompt(
         "Please enter the name for the DletaChase leaderboard.",
-        "__xXxNoobKid69xXx__"
+        "__xXx_NoobKid69_xXx__"
       );
     else localStorage.setItem("__DeltaChase_UserName", this.username);
   }
@@ -55,7 +55,8 @@ class DeltaChaseMod extends GDAPI.Mod {
 
     if (
       runtimeScene.getName() === "Win Screen" &&
-      runtimeScene.getOnceTriggers().triggerOnce("showLeaderboard")
+      runtimeScene.getOnceTriggers().triggerOnce("showLeaderboard") &&
+      this._timeSpentInLastScene > 10
     ) {
       db.add({
         time: this._timeSpentInLastScene,
