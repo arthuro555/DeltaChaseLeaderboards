@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/fullsize.css"],"names":[],"mappings":"AAAA,gBAGE,eAAgB,CAChB,WACF","file":"main.af3ed5bb.chunk.css","sourcesContent":["html,\r\nbody,\r\n#root {\r\n  min-height: 100%;\r\n  height: 100%;\r\n}\r\n"]}
