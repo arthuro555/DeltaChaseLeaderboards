@@ -35,8 +35,8 @@ export const Welcome = ({ onClose }: Props) => {
         {!isTooSmall && (
           <>
             <p>
-              This is a leaderboard for the game DeltaChase by HelperWesley. To
-              add you score, download the DeltaChase leaderboard GDMod mod.{" "}
+              This is a leaderboard for the game Delta Chase by HelperWesley. To
+              add you score, download the Delta Chase leaderboard GDMod mod.{" "}
               <br />
               See those links for more details:
             </p>
@@ -76,7 +76,7 @@ export const Welcome = ({ onClose }: Props) => {
               Every line here is not a sincere appology, just me hoping to fill
               the empty void. I really need to learn to write better CSS, huh?
               <br />
-              Anyways, have fun playing delta chase!
+              Anyways, have fun playing Delta Chase!
               <br />
               <br />
               <span style={{ textAlign: "right" }}>Yours truly, the dev.</span>

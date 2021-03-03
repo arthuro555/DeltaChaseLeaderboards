@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import firebase from "firebase/app";
 import "firebase/firestore";
 import { Welcome } from "./Welcome";
+import { Background } from "./Background";
 
 function App() {
   const [data, setData] = useState<
@@ -22,6 +23,7 @@ function App() {
           <h1 className="title is-1">Delta Chase Leaderboards</h1>
         </p>
       </nav>
+      <Background />
       <div
         className="container"
         style={{
