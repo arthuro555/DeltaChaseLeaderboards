@@ -60,14 +60,22 @@ function App() {
                   <tr>
                     <td>
                       {i === 0 ? (
-                        <span aria-label="World record holder">👑 </span>
+                        <span role="img" aria-label="World record holder">
+                          👑
+                        </span>
                       ) : i === 1 ? (
-                        <span aria-label="Good Speedrunner">🥈 </span>
+                        <span role="img" aria-label="Good Speedrunner">
+                          🥈
+                        </span>
                       ) : i === 2 ? (
-                        <span aria-label="Fast but not enough">🥉 </span>
+                        <span role="img" aria-label="Fast but not enough">
+                          🥉
+                        </span>
                       ) : (
                         i === data.length - 1 && (
-                          <span aria-label="World worst lmao">☠ </span>
+                          <span role="img" aria-label="World worst lmao">
+                            ☠
+                          </span>
                         )
                       )}{" "}
                       {doc.name}
@@ -91,7 +99,11 @@ function App() {
         <div className="content has-text-centered">
           <p>
             <strong>
-              Made with <span aria-label="love">💖</span> by{" "}
+              Made with{" "}
+              <span role="img" aria-label="love">
+                💖
+              </span>{" "}
+              by{" "}
               <a href="https://github.com/arthuro555" rel="noopener noreferer">
                 Arthur Pacaud
               </a>
