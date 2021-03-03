@@ -17,14 +17,19 @@ function App() {
 
   return (
     <>
-      <h1 className="title is-1">Delta Chase Leaderboards</h1>
+      <nav className="level">
+        <p className="level-item has-text-centered">
+          <h1 className="title is-1">Delta Chase Leaderboards</h1>
+        </p>
+      </nav>
       <div
         className="container"
         style={{
           border: "1px solid black",
           borderRadius: "2px",
-          marginLeft: "5px",
-          marginRight: "5px",
+          display: "flex",
+          alignContent: "center",
+          justifyContent: "center",
         }}
       >
         {data === null ? (
