@@ -4,12 +4,19 @@ import "firebase/firestore";
 import { Welcome } from "./Welcome";
 import { Background } from "./Background";
 
+type Document = {
+  name: string;
+  time: number;
+};
+
 function App() {
   const [data, setData] = useState<
-    firebase.firestore.QueryDocumentSnapshot[] | null
+    firebase.firestore.QueryDocumentSnapshot<Document>[] | null
   >(null);
   useEffect(() => {
-    const db = firebase.firestore().collection("scores");
+    const db = firebase
+      .firestore()
+      .collection("scores") as firebase.firestore.CollectionReference<Document>;
     const query = db.orderBy("time", "asc").limit(10);
     return query.onSnapshot((next) => setData(next.docs));
   }, []);
@@ -49,9 +56,22 @@ function App() {
             <tbody>
               {data
                 .map((doc) => doc.data())
-                .map((doc) => (
+                .map((doc, i) => (
                   <tr>
-                    <td>{doc.name}</td>
+                    <td>
+                      {i === 0 ? (
+                        <span aria-label="World record holder">👑 </span>
+                      ) : i === 1 ? (
+                        <span aria-label="Good Speedrunner">🥈 </span>
+                      ) : i === 2 ? (
+                        <span aria-label="Fast but not enough">🥉 </span>
+                      ) : (
+                        i === data.length - 1 && (
+                          <span aria-label="World worst lmao">☠ </span>
+                        )
+                      )}{" "}
+                      {doc.name}
+                    </td>
                     <td>{doc.time}</td>
                   </tr>
                 ))}

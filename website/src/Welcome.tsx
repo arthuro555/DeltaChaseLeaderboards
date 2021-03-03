@@ -57,31 +57,36 @@ export const Welcome = ({ onClose }: Props) => {
           </>
         )}
         {!isPC && !isTooSmall && (
-          <p
+          <div
             style={{
               textAlign: "center",
               fontSize: "20px",
               fontFamily: '"Comic Sans MS", "Comic Sans"',
             }}
           >
-            <br />
-            <br />
             <i>
-              Dear mobile/small screen user, <br />I am truly sorry but I am not
-              good at design, and ended up doing this css hack that left a lot
-              of empty space here. <br />
-              This message is nothing more than something to fill it. Please,
-              feel free to ignore it.
-              <br />
-              Every line here is not a sincere appology, just me hoping to fill
-              the empty void. I really need to learn to write better CSS, huh?
-              <br />
-              Anyways, have fun playing Delta Chase!
-              <br />
-              <br />
-              <span style={{ textAlign: "right" }}>Yours truly, the dev.</span>
+              <p>
+                <br />
+                <br />
+                Dear mobile/small screen user, <br />I am truly sorry but I am
+                not good at design, and ended up doing this css hack that left a
+                lot of empty space here. <br />
+                This message is nothing more than something to fill it. Please,
+                feel free to ignore it.
+                <br />
+                Every line here is not a sincere appology, just me hoping to
+                fill the empty void. I really need to learn to write better CSS,
+                huh?
+                <br />
+                Anyways, have fun playing Delta Chase!
+                <br />
+                <br />
+              </p>
+              <div style={{ textAlign: "right" }}>
+                <p>Yours truly, the dev.</p>
+              </div>
             </i>
-          </p>
+          </div>
         )}
         {isTooSmall && (
           <p>
