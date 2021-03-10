@@ -10,15 +10,26 @@ type Document = {
 };
 
 function App() {
-  const [data, setData] = useState<
+  const [best, setBest] = useState<
     firebase.firestore.QueryDocumentSnapshot<Document>[] | null
   >(null);
+
+  const [worst, setWorst] = useState<Document | null>(null);
+
   useEffect(() => {
     const db = firebase
       .firestore()
       .collection("scores") as firebase.firestore.CollectionReference<Document>;
     const query = db.orderBy("time", "asc").limit(10);
-    return query.onSnapshot((next) => setData(next.docs));
+    return query.onSnapshot((next) => setBest(next.docs));
+  }, []);
+
+  useEffect(() => {
+    const db = firebase
+      .firestore()
+      .collection("scores") as firebase.firestore.CollectionReference<Document>;
+    const query = db.orderBy("time", "desc").limit(1);
+    return query.onSnapshot((next) => setWorst(next.docs[0].data()));
   }, []);
 
   const [showWelcome, setShowWelcome] = useState(true);
@@ -41,7 +52,7 @@ function App() {
           justifyContent: "center",
         }}
       >
-        {data === null ? (
+        {best === null || worst === null ? (
           <progress className="progress is-info" max="100">
             60%
           </progress>
@@ -49,40 +60,51 @@ function App() {
           <table className="table is-striped is-hoverable is-fullwidth">
             <thead>
               <tr style={{ fontSize: 18 }}>
-                <th>User</th>
+                <th>Place</th>
+                <th>Player</th>
                 <th>Time taken</th>
               </tr>
             </thead>
             <tbody>
-              {data
-                .map((doc) => doc.data())
-                .map((doc, i) => (
-                  <tr>
-                    <td>
-                      {i === 0 ? (
-                        <span role="img" aria-label="World record holder">
-                          👑
-                        </span>
-                      ) : i === 1 ? (
-                        <span role="img" aria-label="Good Speedrunner">
-                          🥈
-                        </span>
-                      ) : i === 2 ? (
+              {best.map((doc, i) => (
+                <tr key={doc.id}>
+                  <td>
+                    {i + 1}.{" "}
+                    {i === 0 ? (
+                      <span role="img" aria-label="World record holder">
+                        👑
+                      </span>
+                    ) : i === 1 ? (
+                      <span role="img" aria-label="Good Speedrunner">
+                        🥈
+                      </span>
+                    ) : (
+                      i === 2 && (
                         <span role="img" aria-label="Fast but not enough">
                           🥉
                         </span>
-                      ) : (
-                        i === data.length - 1 && (
-                          <span role="img" aria-label="World worst lmao">
-                            ☠
-                          </span>
-                        )
-                      )}{" "}
-                      {doc.name}
-                    </td>
-                    <td>{doc.time}</td>
-                  </tr>
-                ))}
+                      )
+                    )}
+                  </td>
+                  <td>{doc.data().name}</td>
+                  <td>{doc.data().time}</td>
+                </tr>
+              ))}
+              <tr>
+                <td>...</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  World worst{" "}
+                  <span role="img" aria-label="World worst lmao">
+                    ☠
+                  </span>
+                </td>
+                <td>{worst.name}</td>
+                <td>{worst.time}</td>
+              </tr>
             </tbody>
           </table>
         )}
