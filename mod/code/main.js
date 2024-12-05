@@ -22,8 +22,8 @@ class DeltaChaseMod extends GDAPI.Mod {
   constructor() {
     super();
 
-    GDAPI.registerCallback(
-      GDAPI.CALLBACKS.SCENE_UNLOADING,
+    GDAPI.Callbacks.registerCallback(
+      GDAPI.Callbacks.CALLBACKS.SCENE_UNLOADING,
       this.onSceneUnloading
     );
     this.username = localStorage.getItem("__DeltaChase_UserName");
@@ -32,7 +32,7 @@ class DeltaChaseMod extends GDAPI.Mod {
   _checkUserName() {
     if (this.username === null)
       this.username = prompt(
-        "Please enter the name for the DletaChase leaderboard.",
+        "Please enter the name for the Delta Chase leaderboard.",
         "__xXx_NoobKid69_xXx__"
       );
     else localStorage.setItem("__DeltaChase_UserName", this.username);
@@ -40,8 +40,8 @@ class DeltaChaseMod extends GDAPI.Mod {
 
   unload() {
     delete window["firebase"];
-    GDAPI.unregisterCallback(
-      GDAPI.CALLBACKS.SCENE_UNLOADING,
+    GDAPI.Callbacks.unregisterCallback(
+      GDAPI.Callbacks.CALLBACKS.SCENE_UNLOADING,
       this.onSceneUnloading
     );
   }
